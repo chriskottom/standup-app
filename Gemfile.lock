@@ -1,6 +1,20 @@
+GIT
+  remote: https://github.com/sinatra/sinatra.git
+  revision: 6f15fba2790ebdf4d1215cebf425dea2ea3130ea
+  specs:
+    rack-protection (2.0.5)
+      rack
+    sinatra (2.0.5)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.5)
+      tilt (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (5.0.2)
+      concurrent-ruby (~> 1.0)
     actioncable (6.0.0.beta3)
       actionpack (= 6.0.0.beta3)
       nio4r (~> 2.0)
@@ -59,11 +73,19 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
+    autoprefixer-rails (9.5.1)
+      execjs
+    bcrypt (3.1.12)
     bindex (0.7.0)
     bootsnap (1.4.3)
       msgpack (~> 1.0)
+    bootstrap (4.3.1)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
     builder (3.2.3)
     byebug (11.0.1)
+    cancancan (3.0.0)
     capybara (3.16.1)
       addressable
       mini_mime (>= 0.1.3)
@@ -72,27 +94,86 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
       xpath (~> 3.2)
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
     concurrent-ruby (1.1.5)
+    connection_pool (2.2.2)
+    countries (3.0.0)
+      i18n_data (~> 0.8.0)
+      sixarm_ruby_unaccent (~> 1.1)
+      unicode_utils (~> 1.4)
+    country_select (4.0.0)
+      countries (~> 3.0)
+      sort_alphabetical (~> 1.0)
     crass (1.0.4)
+    css_parser (1.7.0)
+      addressable
+    devise (4.6.2)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 6.0)
+      responders
+      warden (~> 1.2.3)
+    devise_invitable (2.0.1)
+      actionmailer (>= 5.0)
+      devise (>= 4.6)
+    docile (1.3.1)
     erubi (1.8.0)
+    execjs (2.7.0)
+    factory_bot (5.0.2)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.0.1)
+      factory_bot (~> 5.0.0)
+      railties (>= 4.2.0)
     ffi (1.10.0)
+    friendly_id (5.2.5)
+      activerecord (>= 4.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gravatar_image_tag (1.2.0)
+    griddler (1.5.2)
+      htmlentities
+      rails (>= 3.2.0)
+    griddler-mailgun (1.1.1)
+      griddler
+    hitimes (1.3.1)
+    htmlentities (4.3.4)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
+    i18n_data (0.8.0)
     io-like (0.3.0)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    json (2.2.0)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.7.0)
+      launchy (~> 2.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
+    local_time (2.1.0)
+    lodash-rails (4.17.11)
+      railties (>= 3.1)
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -105,15 +186,38 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
+    monetize (1.9.1)
+      money (~> 6.12)
+    money (6.13.2)
+      i18n (>= 0.6.4, <= 2)
+    money-rails (1.13.1)
+      activesupport (>= 3.0)
+      monetize (~> 1.9.0)
+      money (~> 6.13.0)
+      railties (>= 3.0)
     msgpack (1.2.9)
     multi_json (1.13.1)
+    mustermann (1.0.3)
     nio4r (2.3.1)
     nokogiri (1.10.2)
       mini_portile2 (~> 2.4.0)
+    orm_adapter (0.5.0)
+    paper_trail (10.2.1)
+      activerecord (>= 4.2, < 6.1)
+      request_store (~> 1.1)
     pg (1.1.4)
+    popper_js (1.14.5)
+    premailer (1.11.1)
+      addressable
+      css_parser (>= 1.6.0)
+      htmlentities (>= 4.0.0)
+    premailer-rails (1.10.2)
+      actionmailer (>= 3, < 6)
+      premailer (~> 1.7, >= 1.7.9)
     public_suffix (3.0.3)
     puma (3.12.1)
     rack (2.0.7)
+    rack-cors (1.0.3)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -145,10 +249,26 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
     rake (12.3.2)
+    ransack (2.1.1)
+      actionpack (>= 5.0)
+      activerecord (>= 5.0)
+      activesupport (>= 5.0)
+      i18n
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    redis (4.1.0)
+    redis-namespace (1.6.0)
+      redis (>= 3.0.4)
     regexp_parser (1.4.0)
+    request_store (1.4.1)
+      rack (>= 1.4)
+    responders (2.4.1)
+      actionpack (>= 4.2.0, < 6.0)
+      railties (>= 4.2.0, < 6.0)
+    rolify (5.2.0)
+    rollbar (2.19.3)
+      multi_json
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
     sass (3.7.4)
@@ -162,9 +282,42 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sassc (2.0.1)
+      ffi (~> 1.9)
+      rake
+    sassc-rails (2.1.0)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
+    sidekiq (3.4.1)
+      celluloid (~> 0.16.0)
+      connection_pool (>= 2.1.1)
+      json
+      redis (>= 3.0.6)
+      redis-namespace (>= 1.3.1)
+    sidekiq-statistic (1.2.0)
+      sidekiq (>= 3.3.4, < 5)
+    simplecov (0.16.1)
+      docile (~> 1.1)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
+    sixarm_ruby_unaccent (1.2.0)
+    slack-notifier (2.3.2)
+    slim (4.0.1)
+      temple (>= 0.7.6, < 0.9)
+      tilt (>= 2.0.6, < 2.1)
+    slim-rails (3.2.0)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+      slim (>= 3.0, < 5.0)
+    sort_alphabetical (1.1.0)
+      unicode_utils (>= 1.2.2)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -177,14 +330,20 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    temple (0.8.1)
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
+    timers (4.0.4)
+      hitimes
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    unicode_utils (1.4.0)
+    warden (1.2.8)
+      rack (>= 2.0.6)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -205,17 +364,46 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   bootsnap (>= 1.4.1)
+  bootstrap
   byebug
+  cancancan
   capybara (>= 2.15)
   chromedriver-helper
+  country_select
+  devise
+  devise_invitable
+  factory_bot_rails
+  friendly_id
+  gravatar_image_tag
+  griddler
+  griddler-mailgun
   jbuilder (~> 2.5)
+  kaminari
+  letter_opener
   listen (>= 3.0.5, < 3.2)
+  local_time
+  lodash-rails
+  money-rails
+  paper_trail
   pg (>= 0.18, < 2.0)
+  premailer-rails
   puma (~> 3.11)
+  rack-cors
   rails (~> 6.0.0.beta3)
+  ransack
+  redis (~> 4.0)
+  rolify
+  rollbar
   sass-rails (~> 5.0)
   selenium-webdriver
+  sidekiq
+  sidekiq-statistic
+  simplecov
+  sinatra!
+  slack-notifier
+  slim-rails
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
